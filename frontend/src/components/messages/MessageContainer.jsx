@@ -8,7 +8,7 @@ import useGetMessages from "../../hooks/useGetMessages";
 
 const MessageContainer = () => {
   const { messages, selectedConversation, setSelectedConversation } = useConversation();
-  const {loading, messages: newMessage} = useGetMessages();
+  const {messages: newMessage} = useGetMessages();
   useEffect(() => {
     return () => {
       setSelectedConversation(null);
@@ -33,7 +33,7 @@ const MessageContainer = () => {
           <NoChatSelected />
         ) : (
           <>
-            <Messages messages={messages}/>
+            <Messages messages={newMessage}/>
             <MessageInput />
           </>
         )}

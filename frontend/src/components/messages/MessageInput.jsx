@@ -6,12 +6,13 @@ import useSendMessage from "../../hooks/useSendMessage";
 const MessageInput = () => {
   const [message, setMessage] = useState("");
   //   const { messages, setMessages } = useConversation();
-  const { loading, sendMessage } = useSendMessage();
+  const { sendMessage } = useSendMessage();
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
     if (!message) return;
     await sendMessage(message);
+    setMessage("");
   };
   return (
     <form className="px-4 my-3" onSubmit={handleSendMessage}>

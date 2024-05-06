@@ -1,10 +1,9 @@
 import {useState} from 'react'
 import useConversation from '../zustand/useConversation'
-import useGetMessages from './useGetMessages';
 import { toast } from "react-hot-toast";
 
 const useSendMessage = () => {
-  const {setNewMessage, selectedConversation} = useConversation();
+  const {setMessages, selectedConversation} = useConversation();
   const [loading, setLoading] = useState(false);
 
   const sendMessage = async (message) => {
@@ -22,7 +21,11 @@ const useSendMessage = () => {
         const data = await res.json();
         
         if(data.error) return new Error(data.error);
-        setNewMessage(true);
+        const messagesResponse = await fetch(`/api/messages/${selectedConversation._id}`);
+        const messagesData = await messagesResponse.json();
+
+        if (messagesData.error) return new Error(data.error);
+        setMessages(messagesData);
     } catch(error) {
         toast(error.message);
     } finally {
