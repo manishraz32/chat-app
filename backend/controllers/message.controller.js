@@ -1,5 +1,6 @@
 import Conversation from "../models/conversation.modal.js";
 import Message from "../models/message.model.js";
+import { io, getReceiverSocketId} from "../socket/socket.js";
 
 export const sendMessage = async (req, res) => {
     try {
@@ -33,7 +34,13 @@ export const sendMessage = async (req, res) => {
 
         // parallel call
         await Promise.all([conversation.save(), newMessage.save()]);
-
+        
+        // SOCKET functionallity to real time send message
+        const receiverSocketId  = getReceiverSocketId(receiverId);
+        console.log("receiverSocketId ", receiverSocketId);
+        if(receiverSocketId) {
+            io.to(receiverSocketId).emit("newMessage", newMessage);
+        }
         res.status(201).send(newMessage);
     } catch(error) {
         console.log("error in sendMessage controller", error.message);
