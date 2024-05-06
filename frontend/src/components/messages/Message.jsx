@@ -2,8 +2,8 @@ import useConversation from "../../zustand/useConversation";
 import { useAuthContext } from "../../context/AuthContext";
 const Message = ({message}) => {
 	const { authUser } = useAuthContext();
-	const {selectedConversation, setSelectedConversation} = useConversation();
-	const {createdAt, message: messageText, receiverId, senderId, updatedAt} = message || {};
+	const {selectedConversation} = useConversation();
+	const {message: messageText,senderId} = message || {};
 	const isSender = authUser?._id === senderId;
 
 	const profilePic = isSender ? authUser?.profilePic :  selectedConversation?.profilePic;
