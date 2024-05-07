@@ -3,12 +3,14 @@ import { create } from "zustand";
 const useConversation = create((set) => ({
     selectedConversation: null,
     setSelectedConversation: (selectedConversation) => {
-        set({selectedConversation})
+        set({ selectedConversation })
     },
     messages: [],
-    setMessages: (messages) => set({messages}),
+    setMessages: (messages) => set({ messages }),
     isNewMessage: false,
-    setNewMessage: ( isNewMessage ) => set({isNewMessage}),
+    setNewMessage: (isNewMessage) => set({ isNewMessage }),
+    currentSection: "sidebar",
+    setCurrentSection: (currentSection) => set({ currentSection }),
 }))
 
 

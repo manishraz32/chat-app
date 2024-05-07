@@ -5,7 +5,7 @@ import useSignup from "../../hooks/useSignup.js";
 
 const SignUp = () => {
 
-  const {loading, signup} = useSignup();
+  const { loading, signup } = useSignup();
   const [inputs, setInputs] = useState({
     fullName: "",
     username: "",
@@ -24,7 +24,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
+    <div className="flex flex-col items-center justify-center min-w-96 mx-auto bg-[#EFF6FC]">
       <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
         <h1 className="text-3xl font-semibold text-center text-gray-300">
           Sign Up <span className="text-blue-500"> ChatApp</span>
@@ -105,11 +105,11 @@ const SignUp = () => {
           </Link>
 
           <div>
-            <button 
-              className="btn btn-block btn-sm mt-2 border border-slate-700"
+            <button
+              className="btn btn-block btn-sm mt-2 border border-slate-700 bg-blue-500 hover:bg-blue-600 text-white"
               disabled={loading}
             >
-              {loading ? <span className="loading loading-spinner"></span> : "Sign"}
+              {loading ? <span className="loading loading-spinner"></span> : "Sign in"}
             </button>
           </div>
         </form>

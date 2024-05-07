@@ -3,17 +3,17 @@ import useLogout from "../../hooks/useLogout";
 
 
 const LogoutButton = () => {
-	const {loading, logout} =  useLogout();
+	const { loading, logout } = useLogout();
 
-	const handleLogoutClick = async () =>  {
+	const handleLogoutClick = async () => {
 		await logout();
 	}
-		
+
 	return (
-		<div className='mt-auto'>
+		<div className='mt-auto py-2'>
 			{!loading ? (
-				<BiLogOut 
-					className='w-6 h-6 text-white cursor-pointer' 
+				<BiLogOut
+					className='w-6 h-6  cursor-pointer text-sky-500'
 					onClick={handleLogoutClick}
 				/>
 			) : (
