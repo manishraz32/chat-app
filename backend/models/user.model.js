@@ -23,8 +23,19 @@ const userSchema = new mongoose.Schema({
     profilePic: {
         type: String,
         default: "",
-    }
-}, {timestamps: true});
+    },
+    aboutText: {
+        type: String,
+        default: "",
+
+    },
+    // friends: [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: "User",
+    //     }
+    // ]
+}, { timestamps: true });
 
 const User = mongoose.model("User", userSchema);
 

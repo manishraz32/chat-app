@@ -10,14 +10,13 @@ const SearchInput = () => {
   const { conversations } = useGetConversations();
   const handleSubmit = (e) => {
     e.preventDefault();
-	if(searchInput.length < 3) {
-		toast.error("search text must be 3 character");
-		return;
-	}
+    if (searchInput.length < 3) {
+      toast.error("search text must be 3 character");
+      return;
+    }
     const conversation = conversations.find((conversation) =>
       conversation?.fullName?.toLowerCase().includes(searchInput.toLowerCase())
     );
-	console.log("conversation-----", conversation);
     setSelectedConversation(conversation);
     setSearchInput("");
   };
@@ -27,7 +26,7 @@ const SearchInput = () => {
       <input
         type="text"
         placeholder="Search…"
-        className="input input-bordered rounded-full"
+        className="input input-bordered rounded-full bg-[#EFF6FC]"
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
       />
