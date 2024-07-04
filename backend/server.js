@@ -9,6 +9,7 @@ import authRoutes from "./routes/auth.routes.js"
 import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import profileRoutes from "./routes/profile.routes.js";
+import friendRequest from "./routes/request.routes.js";
 
 
 import connectToMongoDB from "./db/connectToMongoDB.js";
@@ -35,6 +36,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/profile", profileRoutes);
+app.use("/api/friendRequest", friendRequest);
 
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 

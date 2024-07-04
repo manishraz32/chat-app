@@ -4,7 +4,7 @@ import Conversation from "./Conversation";
 const Conversations = () => {
   const { conversations } = useGetConversations();
   return (
-    <div className="py-2 flex flex-col overflow-auto">
+    <div className="py-2 flex flex-col overflow-auto max-h-full">
       {conversations?.map((conversation, idx) => (
         <Conversation
           key={conversation._id}
