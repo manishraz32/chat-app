@@ -5,7 +5,10 @@ const useGlobalData = create((set) => ({
     setIsDrowerOpen: (isDrowerOpen) => {
         set({ isDrowerOpen })
     },
-
+    selectedTab: 'friends',
+    setSelectedTab: (selectedTab) => {
+        set({selectedTab})
+    }
 }))
 
 

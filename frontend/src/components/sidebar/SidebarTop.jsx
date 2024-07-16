@@ -4,9 +4,11 @@ import useGlobalData from '../../zustand/useGlobalData';
 
 
 const SidebarTop = () => {
-    const { setIsDrowerOpen } = useGlobalData();
+    const {isDrowerOpen, setIsDrowerOpen } = useGlobalData();
     const isOnline = "online";
     const handleSettingClick = () => {
+        console.log("clicked");
+        console.log("isDrowerOpen", isDrowerOpen);
         setIsDrowerOpen(true);
     }
     return (

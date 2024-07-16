@@ -17,9 +17,11 @@ export const sendFriendRequest = async (req, res) => {
         }
 
         receiver.friendRequests.push(senderId);
+        sender.pendingFriendRequests.push(receiverId);
         await receiver.save();
+        await sender.save();
 
-        res.status(200).json({ error: 'Friend request sent' })
+        res.status(200).json({ error: 'Friend request sent' });
 
     } catch (error) {
         res.status(500).json({ error: 'Server error' });

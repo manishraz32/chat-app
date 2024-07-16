@@ -36,6 +36,10 @@ const userSchema = new mongoose.Schema({
     friendRequests: { 
         type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }], 
         default: [] 
+    },
+    pendingFriendRequests: {
+        type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+        default: []
     }
 }, { timestamps: true });
 
