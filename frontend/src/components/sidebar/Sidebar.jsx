@@ -24,19 +24,19 @@ const Sidebar = ({ currentSection }) => {
 					<SidebarTop />
 					<div className="flex justify-between py-2">
 						<div
-							className="px-[4px] py-[2px] rounded-lg bg-gray-200 border border-solid border-black cursor-pointer"
+							className={`px-[4px] py-[2px] rounded-lg border border-solid border-black cursor-pointer ${selectedTab === 'friends' ? 'bg-blue-500' : 'bg-gray-200'}`}
 							onClick={() => setSelectedTab('friends')}
 						>
 							Friends
 						</div>
 						<div
-							className="px-[4px] py-[2px] rounded-lg bg-gray-200 border border-solid border-black cursor-pointer"
+							className={`px-[4px] py-[2px] rounded-lg border border-solid border-black cursor-pointer ${selectedTab === 'addFriends' ? 'bg-blue-500' : 'bg-gray-200'}`}
 							onClick={() => setSelectedTab('addFriends')}
 						>
 							Add Friends
 						</div>
 						<div
-							className="px-[4px] py-[2px] rounded-lg bg-gray-200 border border-solid border-black cursor-pointer"
+							className={`px-[4px] py-[2px] rounded-lg  border border-solid border-black cursor-pointer ${selectedTab === 'requests' ? 'bg-blue-500' : 'bg-gray-200'}`}
 							onClick={() => setSelectedTab('requests')}
 						>
 							Requests

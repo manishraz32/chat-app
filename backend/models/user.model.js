@@ -33,11 +33,11 @@ const userSchema = new mongoose.Schema({
         type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }], 
         default: [] 
     },
-    friendRequests: { 
+    friendRequests: {  //incoming requests that is not accepted
         type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }], 
         default: [] 
     },
-    pendingFriendRequests: {
+    pendingFriendRequests: {  // outgoing requested that is not accepted
         type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
         default: []
     }
